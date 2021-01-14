@@ -84,7 +84,7 @@ DECLARE
 		-- join purchase_order_line yz on yz.id=xx.purchase_line_id
         -- left join account_invoice_line_stock_move_rel AS a1 ON xx.id = a1.stock_move_id
         -- left join account_invoice_line AS b1 ON a1.account_invoice_line_id = b1.id
-        left join stock_move_invoice_line_rel AS a1 ON xx.id = a1.invoice_line_id
+        left join stock_move_invoice_line_rel AS a1 ON xx.id = a1.move_id
         left join account_invoice_line AS b1 ON a1.invoice_line_id = b1.id
         left join account_invoice AS c1 ON b1.invoice_id=c1.id
         left join res_currency zx on zx.id=c1.currency_id
