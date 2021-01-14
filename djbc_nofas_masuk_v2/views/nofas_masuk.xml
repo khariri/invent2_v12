@@ -38,9 +38,9 @@
 
 
 
-	<record id="nofas_masuk_form" model="ir.ui.view">
+	<record id="nofas_masuk_v2_form" model="ir.ui.view">
 		<field name="name">Laporan Pemasukan Form</field>
-		<field name="model">djbc.nofas_masuk</field>
+		<field name="model">djbc.nofas_masuk_v2</field>
 		<field name="arch" type="xml">
 			<form create="0" edit="0">
 				<group>
@@ -80,10 +80,10 @@
 		</field>
 	</record>
 
-	<record id="nofas_masuk_action" model="ir.actions.act_window">
+	<record id="nofas_masuk_v2_action" model="ir.actions.act_window">
 		<field name="name">Laporan Pemasukan</field>
 		<field name="type">ir.actions.act_window</field>
-		<field name="res_model">djbc.nofas_masuk</field>
+		<field name="res_model">djbc.nofas_masuk_v2</field>
 		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 	</record>
