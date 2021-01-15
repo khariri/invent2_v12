@@ -96,6 +96,7 @@ DECLARE
         left join res_currency d1 on d1.id=c1.currency_id
 		left join res_currency zx on zx.id=yz.currency_id
 		where xx.state='done' 
+        and t6.name like ('Receipts')
 		-- and t6.move_type like 'in'
 		and x.tgl_dok >= date_start and x.tgl_dok<=date_end
 		order by x.tgl_dok;
