@@ -3,7 +3,7 @@
     'name': 'DJBC Laporan Pemasukan Versi 2',
     'version': '12.0.1.0.0',
     'summary': 'DJBC Laporan Pemasukan Fasilitas TPB dan Non Fasilitas',
-    'description': 'DJBC Laporan Pemasukan Fasilitas TPB dan Non Fasilitas ,  Nilai barang di ambil dari Invoice',
+    'description': 'DJBC Laporan Pemasukan Fasilitas TPB dan Non Fasilitas ,  Nilai barang di ambil dari nilai Invoice dan nilai PO',
     'category': 'Extra Tools',
     'author': 'Khariri, Oktovan Rezman',
     'website': '-',
