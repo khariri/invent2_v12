@@ -55,10 +55,19 @@ DECLARE
 			z.name as penerima, xz.default_code as kode_barang, xz.name as nama_barang,
 			xx.product_uom_qty as jumlah, yx.name as satuan, 
 			-- yz.price_subtotal as nilai, 
-            zx.name as currency,
-            (case
+            -- zx.name as currency,
+            (case 
+            when b1.price_subtotal is not null
+                then d1.name
+            when yz.price_subtotal is not null
+                then zx.name
+            else null
+            end) as currency,
+            (case 
             when b1.price_subtotal is not null
                 then b1.price_subtotal
+            when yz.price_subtotal is not null
+                then yz.price_subtotal
             else 0.0
             end) as nilai,
 			no_bl, tgl_bl, no_aju, tgl_aju, no_cont,
@@ -81,11 +90,12 @@ DECLARE
 		join product_template xz on xz.id=xy.product_tmpl_id
 		left join djbc_hscode t4 on t4.id = xz.hscode
 		join uom_uom yx on yx.id=xx.product_uom
-		-- join sale_order_line yz on yz.id=xx.sale_line_id
+		left join sale_order_line yz on yz.id=xx.sale_line_id
         left join stock_move_invoice_line_rel a1 on xx.id = a1.move_id
         left join account_invoice_line b1 on a1.invoice_line_id = b1.id
         left join account_invoice c1 on b1.invoice_id=c1.id
-		left join res_currency zx on zx.id=c1.currency_id
+		left join res_currency d1 on d1.id=c1.currency_id
+        left join res_currency zx on zx.id=yz.currency_id
 		where xx.state='done' 
 		-- and t6.move_type like 'in'
 		and x.tgl_dok >= date_start and x.tgl_dok<=date_end
