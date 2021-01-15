@@ -2,7 +2,7 @@
 <odoo>
 
 	<!--level 2 Laporan Nofas-->
-	<menuitem id="djbc_nofas_laporan_pengeluaran_v2" name="Pengeluaran" parent="djbc.djbc_laporan" groups="djbc.group_djbc_user"
+	<menuitem id="djbc_nofas_laporan_pengeluaran_v2" name="Pengeluaran *" parent="djbc.djbc_laporan" groups="djbc.group_djbc_user"
 			  action="nofas_keluar_v2_wizard_action" sequence="30"/>
 	
 
