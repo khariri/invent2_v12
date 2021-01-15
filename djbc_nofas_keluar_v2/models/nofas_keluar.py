@@ -81,8 +81,11 @@ DECLARE
 		join product_template xz on xz.id=xy.product_tmpl_id
 		left join djbc_hscode t4 on t4.id = xz.hscode
 		join uom_uom yx on yx.id=xx.product_uom
-		join sale_order_line yz on yz.id=xx.sale_line_id
-		join res_currency zx on zx.id=yz.currency_id
+		-- join sale_order_line yz on yz.id=xx.sale_line_id
+        left join stock_move_invoice_line_rel a1 on xx.id = a1.move_id
+        left join account_invoice_line b1 on a1.invoice_line_id = b1.id
+        left join account_invoice c1 on b1.invoice_id=c1.id
+		left join res_currency zx on zx.id=c1.currency_id
 		where xx.state='done' 
 		-- and t6.move_type like 'in'
 		and x.tgl_dok >= date_start and x.tgl_dok<=date_end

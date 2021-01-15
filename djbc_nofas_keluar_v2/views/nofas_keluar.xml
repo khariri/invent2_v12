@@ -38,9 +38,9 @@
 
 
 
-	<record id="nofas_keluar_form" model="ir.ui.view">
+	<record id="nofas_keluar_v2_form" model="ir.ui.view">
 		<field name="name">Laporan Pengeluaran Form</field>
-		<field name="model">djbc.nofas_keluar</field>
+		<field name="model">djbc.nofas_keluar_v2</field>
 		<field name="arch" type="xml">
 			<form create="0" edit="0">
 				<group>
@@ -90,10 +90,10 @@
 	</record-->
 
 
-	<record id="nofas_keluar_action" model="ir.actions.act_window">
+	<record id="nofas_keluar_v2_action" model="ir.actions.act_window">
 		<field name="name">Laporan Pengeluaran</field>
 		<field name="type">ir.actions.act_window</field>
-		<field name="res_model">djbc.nofas_keluar</field>
+		<field name="res_model">djbc.nofas_keluar_v2</field>
 		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 	</record>
