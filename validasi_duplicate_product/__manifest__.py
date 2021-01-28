@@ -15,6 +15,6 @@
     ],
     "data": [
     ],
-    "summary": "validasu duplicate product",
+    "summary": "validasi duplicate product",
     "description": "Penambahan Validasi untuk mencegah nama barang yang sama", 
 }
