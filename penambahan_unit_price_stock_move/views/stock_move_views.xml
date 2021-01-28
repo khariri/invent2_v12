@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
+    <!-- Inherit form stock move form -->
     <record id="stock_move_unit_price_form_inherit" model="ir.ui.view">
         <field name="name">stock.move.unit.price.form.inherit</field>
         <field name="model">stock.move</field>
@@ -14,6 +15,8 @@
             </data>
         </field>
     </record>
+
+     <!-- Inherit form stock picking move -->
 
     <record id="stock_move_picking_unit_price_tree_inherit" model="ir.ui.view">
         <field name="name">stock.move.picking.unit.price.tree.inherit</field>
@@ -29,6 +32,8 @@
         </field>
     </record>
 
+    <!-- Inherit form stock picking move -->
+
     <record id="stock_move_picking_unit_price_form_inherit" model="ir.ui.view">
         <field name="name">stock.move.picking.unit.price.form.inherit</field>
         <field name="model">stock.move</field>
@@ -36,10 +41,37 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <data>
-                <xpath expr="//field[@name='product_uom_qty']" position="after">
+                <xpath expr="//field[@name='product_tmpl_id']" position="before">
                     <field name="harga_satuan"/>
                 </xpath>
             </data>
+        </field>
+    </record>
+
+    <!-- Inherit form stock move -->
+
+    <record id="stock_picking_move_unit_price_tree_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.move.unit.price.tree.inherit</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_picking_move_tree"/>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <field name="harga_satuan"/>
+                </field>
+        </field>
+    </record>
+
+    <!-- Inherit form stock picking detail -->
+    <record id="stock_picking_unit_price_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.unit.price.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_uom']" position="after">
+                <field name="harga_satuan"/>
+            </xpath>
         </field>
     </record>
 </odoo>
