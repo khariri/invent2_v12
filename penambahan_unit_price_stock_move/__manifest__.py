@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Penambahan Unit Price pada stock move',
+    'name': '[JANGAN DI INSTALL] Penambahan Unit Price pada stock move',
     'version': '12.0.1.0.0',
     'summary': 'Penambahan unit price',
     'description': 'Penambahan unit price',
