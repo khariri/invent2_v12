@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<report
+		id="pengrusakan_xlsx"
+		model="djbc.nofas_rusak"
+		string="Print Xlsx"
+		report_type="xlsx"
+		name="djbc.pengrusakan_xlsx"
+		file="djbc_nofas_pengrusakan"
+	/>
+</odoo>

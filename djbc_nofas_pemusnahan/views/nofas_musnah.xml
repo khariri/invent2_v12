@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="nofas_musnah_tree" model="ir.ui.view">
+		<field name="name">Laporan Pemusnahan Tree</field>
+		<field name="model">djbc.nofas_musnah</field>
+		<field name="arch" type="xml">
+			<tree string="Laporan Pemusnahan" create="0" edit="0">				
+				<field name="no_pemusnahan"/>
+				<field name="tgl_pemusnahan"/>
+				<field name="kode_barang"/>
+				<field name="nama_barang"/>				
+				<field name="jumlah"/>
+				<field name="satuan"/>
+				<field name="location" invisible="1"/>
+				<field name="warehouse"/>				
+			</tree>
+		</field>
+	</record> 
+
+
+
+	<record id="nofas_musnah_form" model="ir.ui.view">
+		<field name="name">Laporan Pemusnahan Form</field>
+		<field name="model">djbc.nofas_musnah</field>
+		<field name="arch" type="xml">
+			<form create="0" edit="0">
+				<group>
+					<group>
+						<field name="no_pemusnahan"/>
+						<field name="tgl_pemusnahan"/>
+						<field name="kode_barang"/>
+						<field name="nama_barang"/>				
+						<field name="jumlah"/>
+						<field name="satuan"/>
+						<field name="location" invisible="1"/>
+						<field name="warehouse"/>						
+					</group>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<!--record id="nofas_masuk_action_server" model="ir.actions.server">
+		<field name="name">Laporan Pemasukan</field>
+		<field name="condition">True</field>
+		<field name="type">ir.actions.server</field>
+		<field name="model_id" ref="djbc_nofas_masuk.model_djbc_nofas_masuk"/>
+		<field name="state">code</field>
+		<field name="code">action = model.call_djbc_nofas_masuk()</field>
+	</record-->
+
+
+	<record id="nofas_musnah_action" model="ir.actions.act_window">
+		<field name="name">Laporan Pemusnahan</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">djbc.nofas_musnah</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<!--record id="mutasi_action" model="ir.actions.act_window">
+		<field name="name">Laporan Mutasi</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">djbc.mutasi</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+   		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				It's Empty
+			</p>
+		</field>
+	</record-->
+</odoo>

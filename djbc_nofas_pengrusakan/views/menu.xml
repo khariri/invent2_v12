@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!--level 2 Laporan Nofas-->
+	<menuitem id="djbc_nofas_laporan_pengrusakan" name="Pengrusakan" parent="djbc.djbc_laporan" groups="djbc.group_djbc_user"
+			  action="nofas_rusak_wizard_action" sequence="30"/>
+	
+
+</odoo>

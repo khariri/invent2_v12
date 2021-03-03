@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<record id="stock_picking_pemusnahan_form_inherit" model="ir.ui.view">
+		<field name="name">stock.picking.pemusnahan.form.inherit</field>
+		<field name="model">stock.picking</field>
+		<field name="inherit_id" ref="stock.view_picking_form"/>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<data>
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="picking_type_name_pemusnahan" invisible="1"/>
+					<field name="nomor_pemusnahan" attrs="{'invisible':[('picking_type_name_pemusnahan','not in',['Pemusnahan'])]}"/>
+					<field name="tanggal_pemusnahan" attrs="{'invisible':[('picking_type_name_pemusnahan','not in',['Pemusnahan'])]}"/>
+				</xpath>
+			</data>
+		</field>
+	</record>
+</odoo>

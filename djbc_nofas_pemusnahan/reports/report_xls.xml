@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<report
+		id="pemusnahan_xlsx"
+		model="djbc.nofas_musnah"
+		string="Print Xlsx"
+		report_type="xlsx"
+		name="djbc.pemusnahan_xlsx"
+		file="djbc_nofas_pemusnahan"
+	/>
+</odoo>
