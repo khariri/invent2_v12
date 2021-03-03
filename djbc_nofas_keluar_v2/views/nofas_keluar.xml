@@ -20,7 +20,7 @@
 				<field name="hs_code" invisible= "1" />
 				<field name="kode_barang"/>
 				<field name="nama_barang"/>
-				<field name="lot_id" invisible="1" />
+				<!--<field name="lot_id" invisible="1" />-->
 				<field name="jumlah"/>
 				<field name="satuan"/>
 				<field name="jumlah_kemasan" invisible="1"/>
@@ -63,7 +63,7 @@
 					<group>
 						<field name="kode_barang"/>
 						<field name="nama_barang"/>
-						<field name="lot_id"/>
+						<!-- <field name="lot_id"/> -->
 						<field name="jumlah"/>
 						<field name="satuan"/>
 						<field name="jumlah_kemasan"/>

@@ -27,7 +27,7 @@ class DJBCNofasKeluarV2(models.Model):
     hs_code = fields.Char(string='HS Code')
     kode_barang=fields.Char(string='Kode Barang')
     nama_barang=fields.Char(string='Nama Barang')
-    lot_id = fields.Many2one(comodel_name="stock.production.lot", string="Lot No", required=False, )
+    #lot_id = fields.Many2one(comodel_name="stock.production.lot", string="Lot No", required=False, )
     jumlah = fields.Float(string='Jumlah')
     satuan = fields.Char(string='Satuan')
     jumlah_kemasan = fields.Float(string='Jumlah Kemasan')
@@ -49,11 +49,11 @@ RETURNS VOID AS $BODY$
 DECLARE
 	
 	csr cursor for
-		select t3.code as jenis_dok, t2.id as lot_id, xx.id, x.no_dok as no_dok, 
+		select t3.code as jenis_dok, xx.id, x.no_dok as no_dok, 
 			tgl_dok, y.id as no_pengeluaran, 
 			y.date_done as tgl_pengeluaran, 
 			z.name as penerima, xz.default_code as kode_barang, xz.name as nama_barang,
-			t1.qty_done as jumlah, yx.name as satuan, 
+			xx.product_uom_qty as jumlah, yx.name as satuan, 
 			-- yz.price_subtotal as nilai, 
             -- zx.name as currency,
             (case 
@@ -84,7 +84,7 @@ DECLARE
 		join stock_location t5 on t5.id = xx.location_id
                 	join stock_location t8 on t8.id = t5.location_id
 		left join res_partner t9 on t9.id = t5.partner_id
-		join stock_move_line t1 on t1.move_id = xx.id
+		left join stock_move_line t1 on t1.move_id = xx.id
 		left join stock_production_lot t2 on t2.id = t1.lot_id
 		join product_product xy on xy.id=xx.product_id
 		join product_template xz on xz.id=xy.product_tmpl_id
@@ -110,11 +110,11 @@ BEGIN
 	
 	for rec in csr loop
 		insert into djbc_nofas_keluar_v2 (no_dok, tgl_dok,jenis_dok,no_pengeluaran, tgl_pengeluaran, penerima, kode_barang,
-			nama_barang, jumlah, satuan, nilai, currency, warehouse, lot_id, no_bl, tgl_bl, no_aju, tgl_aju, no_cont,
+			nama_barang, jumlah, satuan, nilai, currency, warehouse, no_bl, tgl_bl, no_aju, tgl_aju, no_cont,
 			jumlah_kemasan, satuan_kemasan, hs_code, pemilik, location, alm_wh, kota_wh) 
 			values (rec.no_dok, rec.tgl_dok, rec.jenis_dok, rec.no_pengeluaran, rec.tgl_pengeluaran,
 				rec.penerima, rec.kode_barang, rec.nama_barang, rec.jumlah, rec.satuan, 
-				rec.nilai, rec.currency, rec.warehouse, rec.lot_id, rec.no_bl, rec.tgl_bl, 
+				rec.nilai, rec.currency, rec.warehouse, rec.no_bl, rec.tgl_bl, 
 				rec.no_aju, rec.tgl_aju, rec.no_cont, rec.jumlah_kemasan, rec.satuan_kemasan, rec.hs_code,
 				rec.pemilik, rec.location, rec.alm_wh, rec.kota_wh) ;
 		-- update stock_move set djbc_masuk_flag=TRUE where id=rec.id;
