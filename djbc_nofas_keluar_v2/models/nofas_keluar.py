@@ -53,7 +53,7 @@ DECLARE
 			tgl_dok, y.id as no_pengeluaran, 
 			y.date_done as tgl_pengeluaran, 
 			z.name as penerima, xz.default_code as kode_barang, xz.name as nama_barang,
-			t1.product_uom_qty as jumlah, yx.name as satuan, 
+			t1.qty_done as jumlah, yx.name as satuan, 
 			-- yz.price_subtotal as nilai, 
             -- zx.name as currency,
             (case 
