@@ -84,8 +84,8 @@ DECLARE
 		join stock_location t5 on t5.id = xx.location_id
                 	join stock_location t8 on t8.id = t5.location_id
 		left join res_partner t9 on t9.id = t5.partner_id
-		left join stock_move_line t1 on t1.move_id = xx.id
-		left join stock_production_lot t2 on t2.id = t1.lot_id
+		-- left join stock_move_line t1 on t1.move_id = xx.id
+		-- left join stock_production_lot t2 on t2.id = t1.lot_id
 		join product_product xy on xy.id=xx.product_id
 		join product_template xz on xz.id=xy.product_tmpl_id
 		left join djbc_hscode t4 on t4.id = xz.hscode
