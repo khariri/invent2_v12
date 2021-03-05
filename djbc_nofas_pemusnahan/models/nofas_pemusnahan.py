@@ -39,7 +39,7 @@ DECLARE
         from stock_move xx
         join stock_picking y on xx.picking_id=y.id
         join stock_picking_type t6 on t6.id = y.picking_type_id
-        join res_partner z on z.id=y.partner_id
+        left join res_partner z on z.id=y.partner_id
         left join res_partner t7 on t7.id = y.owner_id
         join stock_location t5 on t5.id = xx.location_id
         join stock_location t8 on t8.id = t5.location_id
