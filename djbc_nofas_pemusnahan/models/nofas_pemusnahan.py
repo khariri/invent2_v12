@@ -43,7 +43,7 @@ DECLARE
         left join res_partner t7 on t7.id = y.owner_id
         join stock_location t5 on t5.id = xx.location_id
         join stock_location t8 on t8.id = t5.location_id
-        join stock_move_line t1 on t1.move_id = xx.id
+        -- join stock_move_line t1 on t1.move_id = xx.id
         join product_product xy on xy.id=xx.product_id
         join product_template xz on xz.id=xy.product_tmpl_id        
         join uom_uom yx on yx.id=xx.product_uom
