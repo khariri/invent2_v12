@@ -7,10 +7,10 @@ class PengrusakanXlsx(models.AbstractModel):
 
     def generate_xlsx_report(self, workbook, data, lines):
         sheet = workbook.add_worksheet('Pengrusakan')
-        format1 = workbook.add_format({'font_size':12, 'align':'vcenter', 'bold':True})
-        format2 = workbook.add_format({'font_size':12, 'align':'vcenter'})
+        format1 = workbook.add_format({'font_size':12, 'align':'center', 'bold':True})
+        format2 = workbook.add_format({'font_size':12, 'align':'center'})
         sheet.merge_range('A1:G1', 'Laporan Pengrusakan', format1)
-        sheet.merge_range('A1:G1', 'Periode :' + str(data['form']['date_start']) + ' s.d ' + str(data['form']['date_end']), format1)
+        sheet.merge_range('A2:G2', 'Periode :' + str(data['form']['date_start']) + ' s.d ' + str(data['form']['date_end']), format1)
         
         sheet.write(3,0,'No',format1)
         sheet.write(3,1,'Nomor Pengrusakan',format1)
