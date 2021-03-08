@@ -9,17 +9,17 @@ class PengrusakanXlsx(models.AbstractModel):
         sheet = workbook.add_worksheet('Pengrusakan')
         format1 = workbook.add_format({'font_size':12, 'align':'vcenter', 'bold':True})
         format2 = workbook.add_format({'font_size':12, 'align':'vcenter'})
-        sheet.write(0,0, 'Laporan Pengrusakan', format1)
-        sheet.write(1,0, 'Periode :' + str(data['form']['date_start']) + ' s.d ' + str(data['form']['date_end']), format1)
+        sheet.merge_range('A1:G1', 'Laporan Pengrusakan', format1)
+        sheet.merge_range('A1:G1', 'Periode :' + str(data['form']['date_start']) + ' s.d ' + str(data['form']['date_end']), format1)
         
-        sheet.write(2,0, 'No', format1)
-        sheet.write(2,1, 'Nomor Pengrusakan', format1)
-        sheet.write(2,2, 'Tanggal Pengrusakan', format1)
-        sheet.write(2,3, 'Kode Barang', format1)
-        sheet.write(2,4, 'Nama Barang', format1)
-        sheet.write(2,5, 'Jumlah', format1)
-        sheet.write(2,6, 'Satuan', format1)
-        i=2
+        sheet.write(3,0,'No',format1)
+        sheet.write(3,1,'Nomor Pengrusakan',format1)
+        sheet.write(3,2,'Tanggal Pengrusakan',format1)
+        sheet.write(3,3,'Kode Barang',format1)
+        sheet.write(3,4,'Nama Barang',format1)
+        sheet.write(3,5,'Jumlah',format1)
+        sheet.write(3,6,'Satuan',format1)
+        i=3
         no=0
         lines = self.env['djbc.nofas_rusak'].search([])
         for obj in lines:
@@ -27,9 +27,9 @@ class PengrusakanXlsx(models.AbstractModel):
             no=no+1
             sheet.write(i,0,no,format2)
             sheet.write(i,1,obj.no_pengrusakan,format2)
-            sheet.write(i,2,obj.tgl_pengrusakan,format2)
+            sheet.write(i,2,str(obj.tgl_pengrusakan),format2)
             sheet.write(i,3,obj.kode_barang,format2)
             sheet.write(i,4,obj.nama_barang,format2)
             sheet.write(i,5,obj.jumlah,format2)
             sheet.write(i,6,obj.satuan,format2)
-            
+
