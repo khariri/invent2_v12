@@ -6,7 +6,7 @@
 		model="djbc.nofas_rusak"
 		string="Print Xlsx"
 		report_type="xlsx"
-		name="djbc.pengrusakan_xlsx"
-		file="djbc_nofas_pengrusakan"
+		name="djbc_nofas_pengrusakan.pengrusakan_xlsx"
+		file="DJBC Pengrusakan"
 	/>
 </odoo>

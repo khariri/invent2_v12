@@ -14,8 +14,8 @@
 			</group>
 			<footer>
 				<button name='call_djbc_nofas_musnah' string='Submit' type='object' class='btn-primary'/>
-				<button string='Cancel' class='btn-secondary' special='cancel'/>
 				<button name='generate_laporan_pemusnahan_xls' string='Print XLs' type='object' class='btn-primary'/>
+				<button string='Cancel' class='btn-secondary' special='cancel'/>				
 			</footer>
 		</form>
 	</field>

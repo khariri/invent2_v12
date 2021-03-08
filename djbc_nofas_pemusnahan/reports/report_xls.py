@@ -2,7 +2,7 @@ from odoo import models
 
 
 class PemusnahanXlsx(models.AbstractModel):
-    _name = 'report.djbc.pemusnahan_xlsx'
+    _name = 'report.djbc_nofas_pemusnahan.pemusnahan_xlsx'
     _inherit = 'report.report_xlsx.abstract'
 
     def generate_xlsx_report(self, workbook, data, lines):
@@ -11,6 +11,7 @@ class PemusnahanXlsx(models.AbstractModel):
         format2 = workbook.add_format({'font_size':12, 'align':'vcenter'})
         sheet.write(0,0,'Laporan Pemusnahan Barang', format1)
         sheet.write(1,0,'Periode:' + str(data['form']['date_start']) + ' s.d ' + str(data['form']['date_end']), format1)
+
         sheet.write(2,0,'No', format1)
         sheet.write(2,1,'Nomor Pemusnahan', format1)
         sheet.write(2,2,'Tanggal Pemusnahan', format1)

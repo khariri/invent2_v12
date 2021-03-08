@@ -6,7 +6,7 @@
 		model="djbc.nofas_musnah"
 		string="Print Xlsx"
 		report_type="xlsx"
-		name="djbc.pemusnahan_xlsx"
-		file="djbc_nofas_pemusnahan"
+		name="djbc_nofas_pemusnahan.pemusnahan_xlsx"
+		file="DJBC Pemusnahan"
 	/>
 </odoo>
