@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+       id="mutasi_xlsx"
+       model="djbc.mutasi_v2"
+       string="Print Xslx"
+       report_type="xlsx"
+       name="djbc_mutasi_v2.mutasi_xlsx"
+       file="djbc mutasi"
+    />
+   
+   <!--record id="mutasi_odt" model="ir.actions.report">
+    <field name="report_type">py3o</field>
+    <field name="py3o_filetype">odt</field>
+    <field name="module">djbc_mutasi</field>
+    <field name="model">djbc.mutasi</field>	
+    <field name="report_name">djbc.mutasi_odt</field>
+    <field name="name">Print Odt</field>	
+    <field name="py3o_template_fallback">reports/djbc_mutasi.odt</field>
+   </record-->
+
+   <!--record id="mutasi_pdf" model="ir.actions.report">
+    <field name="report_type">py3o</field>
+    <field name="py3o_filetype">pdf</field>
+    <field name="module">djbc_mutasi</field>
+    <field name="model">djbc.mutasi</field>	
+    <field name="report_name">djbc.mutasi_pdf</field>
+    <field name="name">Print Pdf</field>	
+    <field name="py3o_template_fallback">reports/djbc_mutasi.odt</field>
+   </record-->
+
+   <!--record id="mutasi_xlsx2" model="ir.actions.report">
+    <field name="report_type">py3o</field>
+    <field name="py3o_filetype">xls</field>
+    <field name="module">djbc_mutasi</field>
+    <field name="model">djbc.mutasi</field>	
+    <field name="report_name">djbc.mutasi_xlsx2</field>
+    <field name="name">Print Xls2</field>	
+    <field name="py3o_template_fallback">reports/djbc_mutasi.ods</field>
+   </record-->
+</odoo>

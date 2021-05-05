@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="mutasiwizardv2_form" model="ir.ui.view">
+		<field name="name">Mutasi v2 Wizard Form</field>
+		<field name="model">djbc.mutasiwizardv2</field>
+		<field name="arch" type="xml">
+			<form string="Laporan Mutasi">
+				<header>
+					Laporan Mutasi
+				</header>
+				<group>
+					<field name="date_start"/>
+					<field name="date_end"/>
+					<field name="djbc_category_id"/>
+				</group>
+				<footer>
+					<button name='generate_laporan' string='Submit' type='object' class='btn-primary'/>
+					<button name='generate_laporan_xls' string='Print Xls' type='object' class='btn-primary'/>
+					<button string='Cancel' class='btn-secondary' special='cancel'/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="mutasiwizardv2_action" model="ir.actions.act_window">
+		<field name="name">Masukan Periode dan Category</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">djbc.mutasiwizardv2</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref='mutasiwizardv2_form'/>
+		<field name="target">new</field>
+	</record>
+</odoo>
