@@ -11,6 +11,7 @@ class DJBCMutasiWizard(models.TransientModel):
     date_start = fields.Date(string='Date Start')
     date_end = fields.Date(string='Date End')
     djbc_category_id = fields.Many2one(comodel_name="djbc.categs", string="DJBC Category", required=False, )
+    kategori = fields.Char(string="Kategori")
     
     @api.multi 	
     def generate_laporan(self):
@@ -44,6 +45,11 @@ class DJBCMutasiWizard(models.TransientModel):
         if res:
             return res
 
-        
+
+    @api.onchange('djbc_category_id')
+    @api.multi
+    def onchange_kategori(self):
+        self.kategori = self.djbc_category_id.name
+        return
 
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+       id="pemasukan_v3_xlsx"
+       model="djbc.nofas_masuk_v3"
+       string="Print Xslx"
+       report_type="xlsx"
+       name="djbc_nofas_masuk_v3.pemasukan_v3_xlsx"
+       file="DJBC Pemasukan"
+    />
+</odoo>

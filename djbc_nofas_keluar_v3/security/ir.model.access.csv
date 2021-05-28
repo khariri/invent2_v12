@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_djbc_nofas_keluar_user,access.djbc.nofas.keluar.user,model_djbc_nofas_keluar_v3,djbc.group_djbc_user,1,0,0,0
+access_djbc_nofas_keluar_manager,access.djbc.nofas.keluar.manager,model_djbc_nofas_keluar_v3,djbc.group_djbc_manager,1,1,1,1

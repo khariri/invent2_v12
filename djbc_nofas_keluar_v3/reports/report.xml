@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+       id="pengeluaran_v3_xlsx"
+       model="djbc.nofas_keluar_v3"
+       string="Print Xslx"
+       report_type="xlsx"
+       name="djbc_nofas_keluar_v3.pengeluaran_v3_xlsx"
+       file="DJBC Pengeluaran"
+    />
+</odoo>
