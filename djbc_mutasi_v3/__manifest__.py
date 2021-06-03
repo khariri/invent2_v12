@@ -5,7 +5,7 @@
     'summary': 'DJBC Laporan Mutasi V3',
     'description': 'DJBC Laporan Mutasi Berdasarkan Tanggal Penerimaan',
     'category': 'Extra Tools',
-    'author': 'Oktovan Rezman, Khariri',
+    'author': 'Oktovan Rezman',
     'website': '-',
     # 'license': 'AGPL',
     'depends': ['djbc'],
