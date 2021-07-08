@@ -12,7 +12,7 @@ class MutasiXlsx(models.AbstractModel):
         sheet = workbook.add_worksheet('Mutasi')
         format1 = workbook.add_format({'font_size':12, 'align':'vcenter', 'bold':True})
         format2 = workbook.add_format({'font_size':12, 'align':'vcenter'})
-        kateg = str(data['form']['djbc_category_id'])
+        #kateg = str(data['form']['djbc_category_id'])
         sheet.merge_range('A1:K1','MUTASI ' + data['form']['kategori'] , format1)
         #sheet.merge_range('A3:K3', str(data['form']['djbc_category_id.name']) , format1)
         #sheet.merge_range('A1:K1','Mutasi Barang' , format1)
