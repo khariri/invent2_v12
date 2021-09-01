@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="as_account_financial_report_form_view">
+            <field name="name">as.account.financial.report.form.view</field>
+            <field name="model">account.financial.report</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="accounting_pdf_reports.view_account_financial_report_form"/>
+            <field name="arch" type="xml">     
+            	     	            
+                <field name="style_overwrite" position="after">                    
+                    <field name="is_breakline"/>                                             
+                    <field name="code_number"/>                    	                    	
+                    <field name="side"/>
+                    <field name="company_id" required="1"/>
+                    <field name="report_group"/>
+                    <field name="balance_sheet_type" attrs="{'invisible':[('report_group','!=','Balance Sheet')]}"/>
+                    <field name="use_formula" attrs="{'invisible':[('type','!=','account_report')]}"/>
+                </field>
+
+                <field name="style_overwrite" position="after">                
+                    <field name="addition_ids" widget="many2many_tags" attrs="{'required':[('use_formula','=',True)]}"/>
+                    <field name="deduction_ids" widget="many2many_tags" attrs="{'required':[('use_formula','=',True)]}"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

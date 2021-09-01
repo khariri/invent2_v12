@@ -1,0 +1,89 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_account_cashflow_tree">
+            <field name="name">account.cashflow.tree</field>
+            <field name="model">dti.cashflow.items</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="account_report_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_cashflow_form">
+            <field name="name">account.cashflow.form</field>
+            <field name="model">dti.cashflow.items</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="sequence"/>
+                                <field name="sign" required="1"/>
+                                <field name="addition_ids" widget="many2many_tags" attrs="{'required':[('use_formula','=',True)]}"/>
+                                <field name="is_breakline"/>
+                                <field name="side"/>
+                                <field name="report_group"/>
+                                <field name="use_formula" attrs="{'invisible':[('type','!=','account_report')]}"/>
+                            </group>
+                            <group>
+                                <field name="parent_id"/>
+                                <field name="type"/>
+                                <field name="style_overwrite"/>
+                                <field name="deduction_ids" widget="many2many_tags" attrs="{'required':[('use_formula','=',True)]}"/>
+                                <field name="code_number"/>
+                                <field name="company_id" required="1" options="{'no_create': True, 'no_create_edit':True}"/>
+                            </group>
+                        </group>
+                        
+                        <notebook attrs="{'invisible': [('type','not in',['accounts','account_type', 'account_report'])]}">
+                            <page string="Report">
+                                <group>
+                                    <field name="display_detail" attrs="{'invisible': [('type','not in',['accounts','account_type'])]}"/>
+                                    <field name="account_report_id" attrs="{'invisible': [('type', '!=', 'account_report')]}"/>
+                                </group>
+                                <field name="account_ids" attrs="{'invisible': [('type', '!=', 'accounts')]}"/>
+                                <field name="account_type_ids" attrs="{'invisible': [('type', '!=', 'account_type')]}"/>
+                            </page>
+                        </notebook>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <record id="view_account_cashflow_search" model="ir.ui.view">
+            <field name="name">account.cashflow.search</field>
+            <field name="model">dti.cashflow.items</field>
+            <field name="arch" type="xml">
+                <search string="Account Report">
+                    <field name="name" string="Account Report"/>
+                    <field name="type"/>
+                    <field name="account_report_id"/>
+                    <group expand="0" string="Group By">
+                        <filter name="parent_report" string="Parent Report" domain="" context="{'group_by':'parent_id'}"/>
+                        <filter name="report_type" string="Report Type" domain="[]" context="{'group_by':'type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_account_cashflow_items" model="ir.actions.act_window">
+            <field name="name">Cashflow Reports</field>
+            <field name="res_model">dti.cashflow.items</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new Items
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

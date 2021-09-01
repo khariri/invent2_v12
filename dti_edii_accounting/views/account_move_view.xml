@@ -1,0 +1,22 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_move_form_inherit">
+			<field name="name">Account Move Form</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_move_form"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='ref']" position="after">
+                    <field name="usd" invisible="1"/>
+                    <field name="myr" invisible="1"/>
+                </xpath>
+
+				<xpath expr="//field[@name='amount_currency']" position="before">
+                    <field name="amount_myr"/>
+                    <field name="amount_usd"/>
+                </xpath>
+
+			</field>
+		</record>
+	</data>
+</odoo>

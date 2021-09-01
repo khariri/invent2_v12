@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dt_wizard_trial_balance_report_view" model="ir.ui.view">
+            <field name="name">Trial Balance</field>
+            <field name="model">dt.wizard.trial.balance.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="company_id" options="{'no_create':'1','no_open':'1'}" required="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Period">
+                            <field name="customize_date"/>
+                            <field name="fiscal_year_id" options="{'no_create': True, 'no_create_edit': True,'no_quick_create': True}" required="1"/>
+                            <field name="period_id" options="{'no_create': True, 'no_create_edit': True,'no_quick_create': True}" attrs="{'invisible': [('customize_date', '=',True)],'required': [('customize_date', '=',False)]}"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group string="Filter by">
+                            <field name="account_id" domain="[('company_id','=', company_id)]" options="{'no_create': True, 'no_create_edit': True,'no_quick_create': True}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button target="_blank" name="generate_report_excel" string="Download Excel" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_dt_wizard_trial_balance_report" model="ir.actions.act_window">
+            <field name="name">Trial Balance</field>
+            <field name="res_model">dt.wizard.trial.balance.report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="context">{'readonly_by_pass': True}</field>
+            <field name="view_id" ref="dt_wizard_trial_balance_report_view"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

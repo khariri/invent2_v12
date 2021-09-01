@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="account_account_form_view_inherit">
+            <field name="name">account.account.inherit</field>
+            <field name="model">account.account</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.view_account_form"/>
+            <field name="arch" type="xml">     
+            	     	            
+                <field name="user_type_id" position="after">                    
+                    <field name="parent_id"/>
+                </field>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="account_fiscal_form_inherit" model="ir.ui.view">
+            <field name="name">Account Fiscal form</field> 
+            <field name="model">account.fiscal.year</field>
+            <field name="inherit_id" ref="account.action_account_fiscal_year_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet[1]" position="before">
+                    <header>
+                        <label for="create_period" string=""/>
+                        <button name="create_period" string="Create Monthly Periods" type="object" class="oe_highlight"/>
+                    </header>
+                </xpath>
+
+                <xpath expr="//group[1]" position="after">
+                    <notebook>
+                        <page string="Period" nolabel="1">
+                            <field name="period_ids" options="{'no_create_edit': True,'no_quick_create': True}" readonly="1"/>
+                        </page>
+                    </notebook>
+                </xpath>
+                                    
+            </field>
+        </record>  
+    </data>
+</odoo>

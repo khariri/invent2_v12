@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+account_period,account.period,model_account_period,base.group_user,1,1,1,1
+dti_cashflow_items,dti.cashflow.items,model_dti_cashflow_items,base.group_user,1,1,1,1

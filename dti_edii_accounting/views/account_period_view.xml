@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <record id="action_account_period" model="ir.actions.act_window">
+            <field name="name">Period</field>
+            <field name="res_model">account.period</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new Periods
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_period_tree">
+            <field name="name">account.period.tree</field>
+            <field name="model">account.period</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false" delete="false" duplicate="false">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="date_start"/>
+                    <field name="date_stop"/>
+                    <field name="fiscalyear_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_period_form">
+            <field name="name">account.period.form</field>
+            <field name="model">account.period</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false" duplicate="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="fiscalyear_id" widget="selection"/>
+                                <label for="date_start" string="Duration"/>
+                                <div>
+                                    <field name="date_start" class="oe_inline" nolabel="1"/> -
+                                    <field name="date_stop" nolabel="1" class="oe_inline"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record> 
+
+        <record id="view_account_period_search" model="ir.ui.view">
+            <field name="name">account.period.search</field>
+            <field name="model">account.period</field>
+            <field name="arch" type="xml">
+                <search string="Search Period">
+                    <field name="name" filter_domain="['|', ('name','ilike',self), ('code','ilike',self)]" string="Period"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

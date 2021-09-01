@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_invoice_move_form_inherit">
+            <field name="name">Account Invoice Form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form/sheet/notebook/page/group['1']" position="after">
+                    <group class="oe_subtotal_footer oe_right" style="margin-top:-40px;">
+                        <field name="amount_untaxed_myr"/>
+                        <field name="amount_tax_myr"/>
+                        <field name="amount_total_myr" class="oe_subtotal_footer_separator"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//form/sheet/notebook/page/group['1']" position="after">
+                    <group class="oe_subtotal_footer oe_right" style="margin-left:20px;margin-top:-40px;">
+                        <field name="amount_untaxed_usd"/>
+                        <field name="amount_tax_usd"/>
+                        <field name="amount_total_usd" class="oe_subtotal_footer_separator"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//group/group/field[@name='reference']" position="after">
+                        <field name="usd"/>
+                        <field name="myr"/>
+                </xpath>
+
+                <xpath expr="//field[@name='price_subtotal']" position="after">
+                    <field name="amount_usd"/>
+                    <field name="amount_myr"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

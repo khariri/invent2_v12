@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+
+        <!-- ==============================REPORTING==================================== -->
+        <menuitem id="menu_dt_accounting_report" name="Accounting Report" parent="account.menu_finance_reports" sequence="20"/>
+        <menuitem id="menu_dt_general_ledger_report" name="Buku Besar (GL)" parent="menu_dt_accounting_report" action="action_dt_wizard_general_ledger_report" sequence="1"/>
+        <menuitem id="menu_dt_trial_balance_report" name="Neraca (TB)" parent="menu_dt_accounting_report" action="action_dt_wizard_trial_balance_report" sequence="2"/>
+        <menuitem id="menu_dt_laporan_keuangan_report" name="Laporan Keuangan (BS &amp; PL)" parent="menu_dt_accounting_report" action="action_dt_wizard_laporan_keuangan" sequence="3"/>
+        <menuitem id="menu_dt_laporan_cashflow_report" name="Laporan Cashflow" parent="menu_dt_accounting_report" action="action_dt_wizard_laporan_cashflow" sequence="4"/>
+
+        <!-- =====================================CONFIGURATION============================================== -->
+        <menuitem id="menu_dt_accounting_period" name="Periods" parent="account.menu_finance_configuration" sequence="3"/>
+        <menuitem id="menu_account_fiscal_years" name="Fiscal Years" parent="menu_dt_accounting_period" action="account.actions_account_fiscal_year"/>
+        <menuitem id="menu_account_period" name="Periods" parent="menu_dt_accounting_period" action="action_account_period"/>
+
+        <!-- =====================================CASHFLOW============================================== -->
+        <menuitem id="menu_dt_accounting_cashflow" name="Cashflow Report" parent="account.menu_finance_configuration" sequence="4"/>
+        <menuitem id="menu_account_cashflow_tems" name="Cashflow Items" parent="menu_dt_accounting_cashflow" action="action_account_cashflow_items"/>
+
+    </data>
+</odoo>
