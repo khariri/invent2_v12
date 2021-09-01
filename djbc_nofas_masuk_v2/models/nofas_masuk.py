@@ -66,7 +66,7 @@ DECLARE
             when b1.price_subtotal is not null
                 then b1.price_subtotal
             when yz.price_subtotal is not null
-                then yz.price_subtotal
+                then yz.price_unit * xx.product_uom_qty
             else 0.0
             end) as nilai,
 			no_bl, tgl_bl, no_aju, tgl_aju, no_cont,
