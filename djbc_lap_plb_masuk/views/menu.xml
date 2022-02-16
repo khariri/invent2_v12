@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!--level 2 Laporan Nofas-->
+	<menuitem id="djbc_laporan_pemasukan_plb" name="Lap. Pemasukan" parent="djbc.djbc_laporan" groups="djbc.group_djbc_user"
+			  action="lap_plb_masuk_wizard_action" sequence="20"/>
+	
+
+</odoo>

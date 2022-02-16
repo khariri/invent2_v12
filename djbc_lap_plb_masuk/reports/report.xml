@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+       id="pemasukan_plb_xlsx"
+       model="djbc.lap_plb_masuk"
+       string="Print Xslx"
+       report_type="xlsx"
+       name="djbc_lap_plb_masuk.pemasukan_plb_xlsx"
+       file="DJBC Pemasukan PLB"
+    />
+</odoo>

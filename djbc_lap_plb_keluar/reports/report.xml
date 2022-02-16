@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+       id="pengeluaran_plb_xlsx"
+       model="djbc.lap_plb_keluar"
+       string="Print Xslx"
+       report_type="xlsx"
+       name="djbc_lap_plb_keluar.pengeluaran_plb_xlsx"
+       file="DJBC Pengeluaran PLB"
+    />
+</odoo>

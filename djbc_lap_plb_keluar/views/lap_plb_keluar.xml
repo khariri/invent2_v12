@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="lap_plb_keluar_tree" model="ir.ui.view">
+		<field name="name">Laporan Pengeluaran Tree</field>
+		<field name="model">djbc.lap_plb_keluar</field>
+		<field name="arch" type="xml">
+			<tree string="Laporan Pengeluaran" create="0" edit="0">
+				<field name="jenis_dok"/>
+				<field name="no_aju" invisible="1"/>
+				<field name="tgl_aju" invisible="1"/>
+				<field name="no_dok"/>
+				<field name="tgl_dok"/>
+				<field name="no_pengeluaran"/>
+				<field name="tgl_pengeluaran"/>
+				<field name="no_bl" invisible= "1"/>
+				<field name="tgl_bl" invisible="1"/>
+				<field name="no_cont" invisible= "1"/>
+				<field name="penerima"/>
+				<field name="pemilik"/>
+				<field name="hs_code" invisible= "1" />
+				<field name="kode_barang"/>
+				<field name="nama_barang"/>
+				<!--<field name="lot_id" invisible="1" />-->
+				<field name="jumlah"/>
+				<field name="satuan"/>
+				<field name="jumlah_kemasan" invisible="1"/>
+				<field name="satuan_kemasan" invisible="1"/>
+				<field name="nilai"/>
+				<field name="currency"/>
+				<field name="location" invisible="1"/>
+				<field name="warehouse"/>
+				<field name="alm_wh" invisible="1"/>
+				<field name="kota_wh" invisible="1"/>
+				
+			</tree>
+		</field>
+	</record> 
+
+
+
+	<record id="lap_plb_keluar_form" model="ir.ui.view">
+		<field name="name">Laporan Pengeluaran Form</field>
+		<field name="model">djbc.lap_plb_keluar</field>
+		<field name="arch" type="xml">
+			<form create="0" edit="0">
+				<group>
+					<group>
+						<field name="jenis_dok"/>
+						<field name="no_aju"/>
+						<field name="tgl_aju"/>
+						<field name="no_dok"/>
+						<field name="tgl_dok"/>
+						<field name="no_pengeluaran"/>
+						<field name="tgl_pengeluaran"/>
+						<field name="no_bl"/>
+						<field name="tgl_bl"/>
+						<field name="no_cont"/>
+						<field name="penerima"/>
+						<field name="pemilik"/>
+						<field name="hs_code"/>
+						
+					</group>
+					<group>
+						<field name="kode_barang"/>
+						<field name="nama_barang"/>
+						<!-- <field name="lot_id"/> -->
+						<field name="jumlah"/>
+						<field name="satuan"/>
+						<field name="jumlah_kemasan"/>
+						<field name="satuan_kemasan"/>
+						<field name="nilai"/>
+						<field name="currency"/>
+						<field name="location"/>
+						<field name="warehouse"/>
+						<field name="alm_wh"/>
+						<field name="kota_wh"/>
+					</group>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<!--record id="nofas_masuk_action_server" model="ir.actions.server">
+		<field name="name">Laporan Pemasukan</field>
+		<field name="condition">True</field>
+		<field name="type">ir.actions.server</field>
+		<field name="model_id" ref="djbc_nofas_masuk.model_djbc_nofas_masuk"/>
+		<field name="state">code</field>
+		<field name="code">action = model.call_djbc_nofas_masuk()</field>
+	</record-->
+
+
+	<record id="lap_plb_keluar_action" model="ir.actions.act_window">
+		<field name="name">Laporan Pengeluaran</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">djbc.lap_plb_keluar</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<!--record id="mutasi_action" model="ir.actions.act_window">
+		<field name="name">Laporan Mutasi</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">djbc.mutasi</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+   		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				It's Empty
+			</p>
+		</field>
+	</record-->
+</odoo>
