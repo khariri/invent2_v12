@@ -51,7 +51,7 @@ DECLARE
 	csr cursor for
 		select t3.code as jenis_dok, t2.id as lot_id, xx.id, x.no_dok as no_dok, 
 			tgl_dok, y.id as no_penerimaan, 
-			-- y.date_done as tgl_penerimaan, 
+			y.date_done as tgl_penerimaan, 
 			z.name as pengirim, xz.default_code as kode_barang, xz.name as nama_barang,
 			xx.product_uom_qty as jumlah, yx.name as satuan, 
 			-- yz.price_subtotal as nilai, 
@@ -66,14 +66,13 @@ DECLARE
             when b1.price_subtotal is not null
                 then b1.price_subtotal
             when yz.price_subtotal is not null
-                then yz.price_subtotal
+                then yz.price_unit * xx.product_uom_qty
             else 0.0
             end) as nilai,
 			no_bl, tgl_bl, no_aju, tgl_aju, no_cont,
 			xx.jumlah_kemasan as jumlah_kemasan, xx.satuan_kemasan as satuan_kemasan,
 			t4.code as hs_code, t5.name as location, t7.name as pemilik, t8.name as warehouse,
-			t9.street as alm_wh, t9.city as kota_wh,
-            yy.tgl_trf as tgl_penerimaan
+			t9.street as alm_wh, t9.city as kota_wh
 		from djbc_docs x
 		join djbc_doctype t3 on t3.id = x.jenis_dok
 		join stock_picking y on x.id=y.docs_id
@@ -96,19 +95,11 @@ DECLARE
         left join account_invoice c1 on b1.invoice_id=c1.id
         left join res_currency d1 on d1.id=c1.currency_id
 		left join res_currency zx on zx.id=yz.currency_id
-        join (select z1.id as id, 
-            (case 
-                when z1.date_backdating is not null
-                    then z1.date_backdating
-                else w1.date_done
-            end) as tgl_trf 
-            from stock_move z1 
-            join stock_picking w1 on z1.picking_id=w1.id) yy on yy.id =xx.id
 		where xx.state='done' 
         and t6.name like ('Receipts')
 		-- and t6.move_type like 'in'
 		-- and x.tgl_dok >= date_start and x.tgl_dok<=date_end
-        and yy.tgl_trf >= date_start and yy.tgl_trf<=date_end
+        and y.date_done >= date_start and y.date_done<=date_end
 		order by x.tgl_dok;
 	
 	v_wh text;
